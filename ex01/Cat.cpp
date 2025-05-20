@@ -1,4 +1,5 @@
 #include "Cat.hpp"
+#include <Brain.hpp>
 #include <iostream>
 
 Cat::Cat(): Animal("Cat")
@@ -21,10 +22,12 @@ Cat &Cat::operator=(const Cat &cpy)
 	std::cout << "Cat: Assign constructor called" << std::endl;
 	if (this != &cpy)
 	{
-		this->type = cpy.type;
+		std::cout << "Not the same" << std::endl;
 		this->brain = new Brain();
-		for (int i = 0; !cpy.brain->getIdea(i).empty(); i++)
-			this->brain->setIdea(i, cpy.brain->getIdea(i));
+		this->type = cpy.type;
+	}
+	else {
+		std::cout << "-----------------------------------------------------------They are the same" << std::endl;
 	}
 	return (*this);
 }
