@@ -20,6 +20,8 @@ Cat &Cat::operator=(const Cat &cpy)
 	std::cout << "Cat: Assign constructor called" << std::endl;
 	if (this != &cpy)
 	{
+		if (this->brain)
+			delete this->brain;
 		this->type = cpy.type;
 		this->brain = new Brain(*cpy.brain);
 	}

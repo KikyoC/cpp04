@@ -20,6 +20,8 @@ Dog &Dog::operator=(const Dog &cpy)
 	std::cout << "Dog: Assign constructor called" << std::endl;
 	if (this != &cpy)
 	{
+		if (this->brain)
+			delete this->brain;
 		this->brain = new Brain(*cpy.brain);
 		this->type = cpy.type;
 	}
