@@ -15,15 +15,15 @@ int main()
 	for (int i = 0; i < 20; i++)
 		delete animals[i];
 
-	Cat *cat = new Cat();
-	cat->brain->setIdea(1, "Manger");
+	Cat cat = Cat();
+	cat.brain->setIdea(1, "Manger");
 
-	Cat *cat2 = cat;
+	Cat cat2 = cat;
 
-	cat2->brain->setIdea(1, "Dormir");
-	std::cout << cat->brain->getIdea(1) << std::endl;
+	cat2.brain->setIdea(2, "Dormir");
+	std::cout << cat2.brain->getIdea(1) << std::endl;
 
-	delete cat;
+	// delete cat;
 	// delete cat2;
 
 	return 0;

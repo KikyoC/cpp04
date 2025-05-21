@@ -12,9 +12,7 @@ Cat::Cat(const Cat &cpy): Animal(cpy)
 {
 	std::cout << "Cat: Copy constructor called" << std::endl;
 	this->type = cpy.type;
-	this->brain = new Brain();
-	for (int i = 0; !cpy.brain->getIdea(i).empty(); i++)
-		this->brain->setIdea(i, cpy.brain->getIdea(i));
+	this->brain = new Brain(*cpy.brain);
 }
 
 Cat &Cat::operator=(const Cat &cpy)
@@ -23,9 +21,7 @@ Cat &Cat::operator=(const Cat &cpy)
 	if (this != &cpy)
 	{
 		this->type = cpy.type;
-		this->brain = new Brain();
-		for (int i = 0; !cpy.brain->getIdea(i).empty(); i++)
-			this->brain->setIdea(i, cpy.brain->getIdea(i));
+		this->brain = new Brain(*cpy.brain);
 	}
 	return (*this);
 }

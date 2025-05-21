@@ -12,9 +12,7 @@ Dog::Dog(const Dog &cpy): Animal(cpy)
 {
 	std::cout << "Dog: Copy constructor called" << std::endl;
 	this->type = cpy.type;
-	this->brain = new Brain();
-	for (int i = 0; !cpy.brain->getIdea(i).empty(); i++)
-		this->brain->setIdea(i, cpy.brain->getIdea(i));
+	this->brain = new Brain(*cpy.brain);
 }
 
 Dog &Dog::operator=(const Dog &cpy)
@@ -22,9 +20,7 @@ Dog &Dog::operator=(const Dog &cpy)
 	std::cout << "Dog: Assign constructor called" << std::endl;
 	if (this != &cpy)
 	{
-		this->brain = new Brain();
-		for (int i = 0; !cpy.brain->getIdea(i).empty(); i++)
-			this->brain->setIdea(i, cpy.brain->getIdea(i));
+		this->brain = new Brain(*cpy.brain);
 		this->type = cpy.type;
 	}
 	return (*this);
