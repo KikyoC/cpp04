@@ -3,7 +3,6 @@
 #include "Cat.hpp"
 #include <iostream>
 
-
 int main()
 {
 	Animal *animals[20];
@@ -16,15 +15,15 @@ int main()
 		delete animals[i];
 
 	Cat cat = Cat();
-	cat.brain->setIdea(1, "Manger");
+	cat.getBrain()->setIdea(1, "Manger");
 
 	Cat cat2 = cat;
+	cat2.getBrain()->setIdea(1, "Dormir");
+	
+	std::cout << "Cat 1 want \"" << cat.getBrain()->getIdea(1) << "\"" << std::endl;
+	std::cout << "Cat 2 want \"" << cat2.getBrain()->getIdea(1) << "\"" << std::endl;
 
-	cat2.brain->setIdea(2, "Dormir");
-	std::cout << cat2.brain->getIdea(1) << std::endl;
-
-	// delete cat;
-	// delete cat2;
-
+	// cat = cat2;
+	std::cout << "Cat 1 want \"" << cat.getBrain()->getIdea(1) << "\"" << std::endl;
 	return 0;
 }

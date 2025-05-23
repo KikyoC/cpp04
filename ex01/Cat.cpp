@@ -33,6 +33,11 @@ void Cat::makeSound() const
 	std::cout << "Meowwww...." << std::endl;
 }
 
+Brain *Cat::getBrain() const
+{
+	return this->brain;
+}
+
 Cat::~Cat()
 {
 	std::cout << "Cat: Destructor called" << std::endl;
