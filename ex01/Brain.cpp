@@ -31,10 +31,14 @@ Brain::~Brain()
 
 std::string Brain::getIdea(int i) const
 {
+	if (i >= 100 || i < 0)
+		return (NULL);
 	return (this->ideas[i]);
 }
 
 void Brain::setIdea(int i, std::string idea)
 {
+	if (i >= 100 || i < 0)
+		return ;
 	this->ideas[i] = idea;
 }
